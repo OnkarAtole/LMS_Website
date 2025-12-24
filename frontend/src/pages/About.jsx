@@ -104,14 +104,7 @@ export default function About() {
         </motion.section>
       </section>
 
-
       {/* ================= CONTACT SECTION ================= */}
-      <section className="px-6 md:px-8 py-20 bg-gray-50">
-        <motion.div className="max-w-6xl mx-auto">
-          <motion.h2 className="text-4xl md:text-6xl font-bold text-center mb-6">
-            Contact <span className="text-blue-500">Us</span>
-          </motion.h2>
-
       <section className="px-6 md:px-8 py-20 bg-gray-50">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -144,9 +137,9 @@ export default function About() {
             </motion.h2>
           </div>
 
-
           <motion.p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
-            Reach out to us for business inquiries, partnerships, or technical support.
+            Reach out to us for business inquiries, partnerships, or technical
+            support.
           </motion.p>
 
           <div className="grid md:grid-cols-2 gap-12">
