@@ -158,7 +158,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ================= PROCESS (LIGHT – UNIFORM) ================= */}
+      {/* ================= PROCESS (LIGHT – UNIFORM & DYNAMIC) ================= */}
       <section className="bg-[#F8FAFC] py-24">
         <div className="max-w-7xl mx-auto px-6 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-16">
@@ -172,7 +172,14 @@ export default function Home() {
               "Development & Testing",
               "Deployment & Support",
             ].map((step, i) => (
-              <div key={i} className="bg-white rounded-xl p-8 shadow-sm">
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.15, duration: 0.6 }}
+                className="bg-white rounded-xl p-8 shadow-sm hover:shadow-md transition-shadow"
+              >
                 <div className="text-blue-600 text-3xl font-bold mb-4">
                   {i + 1}
                 </div>
@@ -182,7 +189,7 @@ export default function Home() {
                 <p className="text-gray-600 text-sm">
                   Structured, transparent, and efficient execution.
                 </p>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
