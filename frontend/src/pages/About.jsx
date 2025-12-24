@@ -104,12 +104,46 @@ export default function About() {
         </motion.section>
       </section>
 
+
       {/* ================= CONTACT SECTION ================= */}
       <section className="px-6 md:px-8 py-20 bg-gray-50">
         <motion.div className="max-w-6xl mx-auto">
           <motion.h2 className="text-4xl md:text-6xl font-bold text-center mb-6">
             Contact <span className="text-blue-500">Us</span>
           </motion.h2>
+
+      <section className="px-6 md:px-8 py-20 bg-gray-50">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          viewport={{ once: true }}
+          className="max-w-6xl mx-auto"
+        >
+          {/* ================= HEADING ================= */}
+          <div className="flex justify-center">
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              viewport={{ once: true }}
+              className="
+                relative inline-block
+                text-4xl md:text-6xl font-bold text-center mb-6 leading-tight
+
+                after:content-['']
+                after:absolute after:left-1/2 after:-bottom-2
+                after:-translate-x-1/2
+                after:h-[3px] after:w-0
+                after:bg-blue-500
+                after:transition-all after:duration-300
+                hover:after:w-full
+              "
+            >
+              Contact <span className="text-blue-500">Us</span>
+            </motion.h2>
+          </div>
+
 
           <motion.p className="text-center text-gray-600 max-w-2xl mx-auto mb-16">
             Reach out to us for business inquiries, partnerships, or technical support.
