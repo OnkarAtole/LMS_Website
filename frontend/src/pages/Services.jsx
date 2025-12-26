@@ -99,33 +99,33 @@ export default function Services() {
           </motion.div>
 
           {/* RIGHT: STATS / SIGNALS */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6 }}
-  className="hidden md:grid grid-cols-2 gap-6"
->
-  {[
-    { value: "10+", label: "Projects Delivered" },
-    { value: "5+", label: "Core Technologies" },
-    { value: "24/7", label: "Support & Monitoring" },
-    { value: "2024", label: "Founded & Scaling" },
-  ].map((item) => (
-    <div
-      key={item.label}
-      className="bg-[#111827] border border-blue-500/15
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="hidden md:grid grid-cols-2 gap-6"
+          >
+            {[
+              { value: "10+", label: "Projects Delivered" },
+              { value: "5+", label: "Core Technologies" },
+              { value: "24/7", label: "Support & Monitoring" },
+              { value: "2024", label: "Founded & Scaling" },
+            ].map((item) => (
+              <div
+                key={item.label}
+                className="bg-[#111827] border border-blue-500/15
                  rounded-2xl p-6 text-center
                  hover:border-cyan-400/40 transition-all"
-    >
-      <div className="text-3xl font-bold text-blue-400">
-        {item.value}
-      </div>
-      <div className="mt-2 text-sm text-gray-400">
-        {item.label}
-      </div>
-    </div>
-  ))}
-</motion.div>
+              >
+                <div className="text-3xl font-bold text-blue-400">
+                  {item.value}
+                </div>
+                <div className="mt-2 text-sm text-gray-400">
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
 
         </div>
       </div>
@@ -288,7 +288,7 @@ export default function Services() {
               </ul>
 
               <Link
-                to="/contact"
+                to="/about"
                 className="inline-block mt-8 px-10 py-4 rounded-full
                      bg-blue-600 hover:bg-blue-700
                      text-white font-semibold text-lg
