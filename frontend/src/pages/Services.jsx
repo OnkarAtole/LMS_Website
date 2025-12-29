@@ -1,5 +1,6 @@
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
 import {
   HiOutlineCode,
   HiOutlineServer,
@@ -8,6 +9,31 @@ import {
   HiOutlineDeviceMobile,
   HiOutlineCog
 } from "react-icons/hi";
+
+const CountUp = ({ to }) => {
+  const count = useMotionValue(0);
+  const rounded = useTransform(count, (latest) =>
+    Math.round(latest)
+  );
+
+  useEffect(() => {
+    const controls = animate(count, to, {
+      duration: 2.2,
+      ease: [0.16, 1, 0.3, 1], // ultra smooth
+    });
+
+    return controls.stop;
+  }, [to]);
+
+  return <motion.span>{rounded}</motion.span>;
+};
+
+const stats = [
+  { value: 10, suffix: "+", label: "Projects Delivered", animate: true },
+  { value: 5, suffix: "+", label: "Core Technologies", animate: true },
+  { value: "24/7", suffix: "", label: "Support & Monitoring", animate: false },
+  { value: 2024, suffix: "", label: "Founded & Scaling", animate: true },
+];
 
 /* ================= DATA ================= */
 
@@ -50,12 +76,8 @@ const services = [
   },
 ];
 
-const steps = [
-  "Discovery & Planning",
-  "Design & Architecture",
-  "Development & Testing",
-  "Deployment & Support",
-];
+
+
 
 /* ================= PAGE ================= */
 
@@ -105,28 +127,30 @@ export default function Services() {
             transition={{ duration: 0.6 }}
             className="hidden md:grid grid-cols-2 gap-6"
           >
-            {[
-              { value: "10+", label: "Projects Delivered" },
-              { value: "5+", label: "Core Technologies" },
-              { value: "24/7", label: "Support & Monitoring" },
-              { value: "2024", label: "Founded & Scaling" },
-            ].map((item) => (
+            {stats.map((item) => (
               <div
                 key={item.label}
                 className="bg-[#111827] border border-blue-500/15
-                 rounded-2xl p-6 text-center
-                 hover:border-cyan-400/40 transition-all"
+      rounded-2xl p-6 text-center
+      hover:border-cyan-400/40 transition-all"
               >
                 <div className="text-3xl font-bold text-blue-400">
-                  {item.value}
+                  {item.animate ? (
+                    <>
+                      <CountUp to={item.value} />
+                      {item.suffix}
+                    </>
+                  ) : (
+                    item.value
+                  )}
                 </div>
+
                 <div className="mt-2 text-sm text-gray-400">
                   {item.label}
                 </div>
               </div>
             ))}
           </motion.div>
-
         </div>
       </div>
 
@@ -189,58 +213,103 @@ export default function Services() {
       </div>
 
       {/* ================= CTA ================= */}
-      <div className="bg-gradient-to-br from-blue-600/10 via-transparent to-indigo-600/10 py-24">
-        <div className="max-w-7xl mx-auto px-6">
+<div className="py-24 bg-gradient-to-br from-blue-600/10 via-transparent to-indigo-600/10">
+  <div className="max-w-7xl mx-auto px-6">
 
-          <div className="grid md:grid-cols-2 gap-12 items-center
-                    bg-[#111827] border border-blue-500/20
-                    rounded-3xl p-10 md:p-14">
+    {/* CTA CARD */}
+    <div
+      className="
+        relative overflow-hidden group
+        grid md:grid-cols-2 gap-12 items-center
+        bg-[#111827]
+        border border-blue-500/20
+        rounded-3xl p-10 md:p-14
+        transition-transform duration-500
+        hover:-translate-y-1
+      "
+    >
+      {/* ===== Card glow (on hover) ===== */}
+      <span
+        className="
+          absolute inset-0
+          bg-gradient-to-r from-blue-600/20 via-transparent to-indigo-600/20
+          opacity-0 group-hover:opacity-100
+          transition-opacity duration-700
+        "
+      />
 
-            {/* LEFT CONTENT */}
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
-                Ready to Build With an
-                <span className="text-blue-500"> AI-Augmented Partner?</span>
-              </h2>
+      {/* ===== Ambient radial lights INSIDE card ===== */}
+      <span
+        className="
+          absolute -top-24 -right-24
+          w-80 h-80
+          bg-blue-600/30
+          rounded-full
+          blur-3xl
+          opacity-60
+          pointer-events-none
+        "
+      />
+      <span
+        className="
+          absolute -bottom-24 -left-24
+          w-80 h-80
+          bg-indigo-600/30
+          rounded-full
+          blur-3xl
+          opacity-60
+          pointer-events-none
+        "
+      />
 
-              <p className="mt-5 text-gray-400 text-lg leading-relaxed max-w-xl">
-                Let’s discuss your vision. Schedule a free, no-obligation consultation
-                with our senior solutions architects to explore how our flexible
-                engineering teams can turn your idea into a market-leading reality.
-              </p>
-            </div>
+      {/* ===== CONTENT ===== */}
+      <div className="relative z-10">
+        <h2 className="text-3xl md:text-4xl font-bold text-white leading-tight">
+          Ready to Build With an
+          <span className="text-blue-500"> AI-Augmented Partner?</span>
+        </h2>
 
-            {/* RIGHT CONTENT */}
-            <div>
-              <ul className="space-y-4 text-gray-300 text-base">
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
-                  No-obligation consultation
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
-                  Senior solutions architect (not sales)
-                </li>
-                <li className="flex items-start gap-3">
-                  <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
-                  Response within 1 business day
-                </li>
-              </ul>
-
-              <Link
-                to="/about"
-                className="inline-block mt-8 px-10 py-4 rounded-full
-                     bg-blue-600 hover:bg-blue-700
-                     text-white font-semibold text-lg
-                     transition-all shadow-lg shadow-blue-600/30"
-              >
-                Schedule Your Free Consultation →
-              </Link>
-            </div>
-
-          </div>
-        </div>
+        <p className="mt-5 text-gray-400 text-lg leading-relaxed max-w-xl">
+          Let’s discuss your vision. Schedule a free, no-obligation consultation
+          with our senior solutions architects to explore how our flexible
+          engineering teams can turn your idea into a market-leading reality.
+        </p>
       </div>
+
+      <div className="relative z-10">
+        <ul className="space-y-4 text-gray-300 text-base">
+          <li className="flex items-start gap-3">
+            <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+            No-obligation consultation
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+            Senior solutions architect (not sales)
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="mt-1 h-2 w-2 rounded-full bg-blue-400" />
+            Response within 1 business day
+          </li>
+        </ul>
+
+        <Link
+          to="/about"
+          className="
+            inline-block mt-8 px-10 py-4 rounded-full
+            bg-blue-600 hover:bg-blue-700
+            text-white font-semibold text-lg
+            transition-all
+            shadow-lg shadow-blue-600/30
+            hover:scale-[1.03]
+          "
+        >
+          Schedule Your Free Consultation →
+        </Link>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 
     </section>

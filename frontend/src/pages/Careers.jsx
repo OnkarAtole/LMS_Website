@@ -124,9 +124,9 @@ const Careers = () => {
 
   return (
     <div className="bg-gradient-to-b from-[#0B1220] via-[#0E1628] to-[#0B1220] text-white">
-{/* HERO */}
-<motion.section
-  className="
+      {/* HERO */}
+      <motion.section
+        className="
     relative
     min-h-screen
     w-full
@@ -136,13 +136,13 @@ const Careers = () => {
     text-center
     overflow-hidden
   "
-  initial={{ opacity: 0, y: 40 }}
-  animate={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.9 }}
->
-  {/* BACKGROUND IMAGE */}
-  <div
-    className="
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+      >
+        {/* BACKGROUND IMAGE */}
+        <div
+          className="
       absolute inset-0
       bg-[url('/careerimage.jpg')]
       bg-cover bg-center bg-no-repeat
@@ -150,23 +150,23 @@ const Careers = () => {
       blur-[2px]
       opacity-60
     "
-  />
+        />
 
-  {/* COLOR + DARK OVERLAY */}
-  <div
-    className="
+        {/* COLOR + DARK OVERLAY */}
+        <div
+          className="
       absolute inset-0
       bg-gradient-to-b
       from-[#0B1220]/80
       via-[#0E1628]/75
       to-[#0B1220]/90
     "
-  />
+        />
 
-  {/* CONTENT */}
-  <div className="relative z-10 max-w-6xl mx-auto px-6">
-    <h1
-      className="
+        {/* CONTENT */}
+        <div className="relative z-10 max-w-6xl mx-auto px-6">
+          <h1
+            className="
         text-4xl md:text-6xl
         font-extrabold
         leading-tight
@@ -174,23 +174,23 @@ const Careers = () => {
         tracking-tight
         drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)]
       "
-    >
-      Build Your Career With{" "}
-      <span className="text-blue-400 relative">
-        LM Software
-        <span
-          className="
+          >
+            Build Your Career With{" "}
+            <span className="text-blue-400 relative">
+              LM Software
+              <span
+                className="
             absolute left-0 -bottom-2
             w-full h-[3px]
             bg-blue-400/70
             rounded-full
           "
-        />
-      </span>
-    </h1>
+              />
+            </span>
+          </h1>
 
-    <p
-      className="
+          <p
+            className="
         mt-6
         text-lg md:text-xl
         text-gray-200
@@ -198,12 +198,12 @@ const Careers = () => {
         leading-relaxed
         drop-shadow
       "
-    >
-      Work on scalable digital solutions, grow your skills, and be part of a
-      team that values ownership, learning, and innovation.
-    </p>
-  </div>
-</motion.section>
+          >
+            Work on scalable digital solutions, grow your skills, and be part of a
+            team that values ownership, learning, and innovation.
+          </p>
+        </div>
+      </motion.section>
 
       {/* WHY WORK WITH US */}
       <motion.section
