@@ -45,7 +45,7 @@ export default function Footer() {
         {/* Contact */}
         <div>
           <h4 className="text-lg font-semibold text-white mb-3">Contact</h4>
-          <p className="text-sm">Email: contact@lmsoftware.com</p>
+          <p className="text-sm">Email: info@lmsoftwaresolutions.com</p>
           <p className="text-sm">Location: India</p>
         </div>
       </div>

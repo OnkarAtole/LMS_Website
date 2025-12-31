@@ -393,7 +393,7 @@ export default function About() {
               <h3 className="text-lg font-semibold mb-2 text-white">
                 Email Us
               </h3>
-              <p className="text-gray-400 text-sm">contact@yourcompany.com</p>
+              <p className="text-gray-400 text-sm">info@lmsoftwaresolutions.com</p>
             </motion.div>
 
             {/* -------- Phone -------- */}
