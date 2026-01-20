@@ -12,15 +12,15 @@ const faqs = [
     a: "We provide web development, mobile applications, cloud & DevOps solutions, backend systems, and AI-powered automation tailored to business needs.",
   },
   {
-    q: "What technologies do you specialize in?",
+    q: "What technologies do we specialize in?",
     a: "Our stack includes React, Next.js, FastAPI, Django, Node.js, cloud platforms, containerization, and scalable databases.",
   },
   {
-    q: "Do you work with startups and enterprises?",
+    q: "Do we work with startups and enterprises?",
     a: "Yes. We collaborate with startups, growing businesses, and enterprises to deliver secure and scalable digital solutions.",
   },
   {
-    q: "How do you ensure quality and security?",
+    q: "How do we ensure quality and security?",
     a: "We follow best practices such as code reviews, testing, secure authentication, data protection, and cloud security standards.",
   },
   {

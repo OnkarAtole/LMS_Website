@@ -253,30 +253,45 @@ const Careers = () => {
             <motion.div
               key={index}
               variants={cardVariants}
-              whileHover={{ y: -8 }}
+              whileHover={{ y: -10, scale: 1.03 }}
+              transition={{ type: "spring", stiffness: 180, damping: 14 }}
               className="
-          bg-white text-black rounded-xl p-6
-          border border-black/10
-          transition-all duration-300
-          hover:border-blue-700
-          hover:shadow-[0_20px_40px_rgba(0,0,0,0.15)]
-          relative overflow-hidden
-        "
+        relative overflow-hidden rounded-2xl p-6
+        bg-gradient-to-br from-[#0b1220] via-[#0f1a30] to-[#0b1220]
+        text-white
+        border border-white/10
+        backdrop-blur-xl
+        shadow-[0_10px_40px_rgba(0,0,0,0.6)]
+        hover:border-cyan-400/40
+        hover:shadow-[0_0_40px_rgba(34,211,238,0.18)]
+        transition-all duration-300
+      "
             >
-              {/* Accent bar */}
-              <span className="absolute top-0 left-0 h-1 w-full bg-gradient-to-r from-blue-600 to-blue-400" />
+              {/* Top accent bar */}
+              <span className="absolute top-0 left-0 h-[2px] w-full " />
 
-              <h3 className="text-lg font-semibold mb-4">
+              {/* Subtle hover glow */}
+              <span className="absolute inset-0 bg-cyan-400/5 opacity-0 hover:opacity-100 transition duration-300 rounded-2xl" />
+
+              <h3 className="text-lg font-semibold mb-5 tracking-wide text-white">
                 {item.title}
               </h3>
 
-              <ul className="space-y-2">
+              <ul className="space-y-3">
                 {item.description.map((line, i) => (
                   <li
                     key={i}
-                    className="text-sm italic leading-relaxed text-gray-800"
+                    className="flex items-start gap-3 text-sm leading-relaxed text-gray-300"
                   >
-                    {line}
+                    {/* Bullet */}
+                    <span className="
+              mt-2 h-1.5 w-1.5 rounded-full
+              bg-gradient-to-r from-cyan-400 to-blue-500
+              shadow-[0_0_8px_rgba(34,211,238,0.8)]
+              flex-shrink-0
+            " />
+
+                    <span>{line}</span>
                   </li>
                 ))}
               </ul>
